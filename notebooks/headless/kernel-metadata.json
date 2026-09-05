@@ -1,0 +1,14 @@
+{
+  "id": "akhileshshinde477/ahc-vad-infer",
+  "title": "ahc vad infer",
+  "code_file": "ahc-vad-infer.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["akhileshshinde477/ahc-vad-l23-coarse", "akhileshshinde477/ahc-vad-lora"],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
