@@ -1,0 +1,10 @@
+torch
+transformers
+unsloth
+peft
+open_clip_torch
+opencv-python
+numpy
+pillow
+tqdm
+scikit-learn

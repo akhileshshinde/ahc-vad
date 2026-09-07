@@ -1,11 +1,27 @@
 # AHC Visual Intelligence Hackathon — Real-Time Video Anomaly Detection
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Model](https://img.shields.io/badge/model-Qwen2.5--VL--3B%20%2B%20LoRA-orange)
+![Runtime](https://img.shields.io/badge/runtime-llama.cpp%20GGUF-green)
+
 Detecting 12 classes of anomalies (accidents, congestion, fire, flooding, fighting,
 loitering, …) in drone / CCTV / dashcam footage, with a **small VLM that runs locally
 on a 4GB laptop GPU**.
 
 Hardware target: **RTX 3050 Laptop, 3.81GB usable VRAM**. That constraint drove
 every architectural decision below.
+
+## Tech stack
+
+| Layer | Tools |
+|---|---|
+| VLM fine-tuning | Qwen2.5-VL-3B-Instruct, Unsloth QLoRA, PEFT, 4-bit quantization |
+| Fast classifier | CLIP ViT-L/14 (OpenCLIP), linear probe |
+| Local serving | llama.cpp / llama-server, GGUF (Q4_K_M) |
+| Data pipeline | Python, OpenCV, ffmpeg |
+| Training infra | Kaggle (T4 GPU) |
+| Target hardware | RTX 3050 Laptop, 3.81GB VRAM |
 
 ---
 
@@ -137,3 +153,20 @@ python scripts/score_submission.py --submission submission.json
 - Training was cut to 100 steps (~0.5 epochs of a capped 1,665-example set) for the deadline
 - Per-window classification carries no cross-window context, which is the root cause of
   fragmented intervals
+
+---
+
+## Setup
+
+```bash
+git clone https://github.com/akhileshshinde/ahc-vad
+cd ahc-vad
+pip install -r requirements.txt
+```
+
+## Author
+
+**Akhilesh Shinde**
+Built for the AHC Visual Intelligence Hackathon.
+
+Contributions and issues welcome — see [LICENSE](LICENSE) (MIT).
